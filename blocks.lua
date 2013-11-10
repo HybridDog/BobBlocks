@@ -3,48 +3,16 @@
 
 local bobblock_colours = {"red", "orange", "yellow", "green", "blue", "indigo", "violet", "white"}
 
-local update_bobblock = function(pos, node)
-	local nodename=""
-	local param2=""
+local function update_bobblock(pos, node)
 	--Switch Block State
-	for _, colour in ipairs(bobblock_colours) do
-		--Blocks
-		if node.name == 'bobblocks:'..colour..'block_off' then
-			nodename = 'bobblocks:'..colour..'block'
-			break
-		elseif node.name == 'bobblocks:'..colour..'block' then
-			nodename = 'bobblocks:'..colour..'block_off'
-			break
-		--Poles
-		elseif node.name == 'bobblocks:'..colour..'pole_off' then
-			nodename = 'bobblocks:'..colour..'pole'
-			break
-		elseif node.name == 'bobblocks:'..colour..'pole' then
-			nodename = 'bobblocks:'..colour..'pole_off'
-			break
-		end
-	end
-	minetest.add_node(pos, {name = nodename})
-	minetest.sound_play("bobblocks_glassblock",
-	{pos = pos, gain = 1.0, max_hear_distance = 32,})
+	minetest.add_node(pos, {name = 'bobblocks:'..node})
+	minetest.sound_play("bobblocks_glassblock", {
+		pos = pos,
+		gain = 1.0,
+		max_hear_distance = 32,
+	})
 end
 
-
--- Punch Blocks
-local on_bobblock_punched = function (pos, node, puncher)
-	for _, colour in ipairs(bobblock_colours) do
-		--Blocks
-		if node.name == 'bobblocks:'..colour..'block_off'
-		or node.name == 'bobblocks:'..colour..'block'
-		--Poles
-		or node.name == 'bobblocks:'..colour..'pole_off'
-		or node.name == 'bobblocks:'..colour..'pole' then
-			update_bobblock(pos, node)
-		end
-	end
-end
-
-minetest.register_on_punchnode(on_bobblock_punched)
 
 -- Nodes
 -- Misc Node
@@ -79,10 +47,15 @@ minetest.register_node("bobblocks:"..colour.."block", {
 	sounds = default.node_sound_glass_defaults(),
 	light_source = LIGHT_MAX-0,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
-	mesecons = {conductor={
+	on_punch = function(pos)
+		update_bobblock(pos, colour.."block_off")
+	end,
+	mesecons = {
+		conductor={
 			state = mesecon.state.on,
 			offstate = "bobblocks:"..colour.."block_off"
-		}}
+		}
+	}
 })
 
 minetest.register_node("bobblocks:"..colour.."block_off", {
@@ -92,11 +65,15 @@ minetest.register_node("bobblocks:"..colour.."block_off", {
 	alpha = WATER_ALPHA,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
 	drop = 'bobblocks:'..colour..'block',
-	mesecons = {conductor={
+	on_punch = function(pos)
+		update_bobblock(pos, colour.."block")
+	end,
+	mesecons = {
+		conductor={
 			state = mesecon.state.off,
 			onstate = "bobblocks:"..colour.."block"
-		}}
-
+		}
+	}
 })
 
 
@@ -113,6 +90,9 @@ minetest.register_node("bobblocks:"..colour.."pole", {
 	sounds = default.node_sound_glass_defaults(),
 	light_source = LIGHT_MAX-0,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+	on_punch = function(pos)
+		update_bobblock(pos, colour.."pole_off")
+	end,
 	mesecons = {conductor={
 			state = mesecon.state.on,
 			offstate = "bobblocks:"..colour.."pole_off"
@@ -131,6 +111,9 @@ minetest.register_node("bobblocks:"..colour.."pole_off", {
 	light_source = LIGHT_MAX-10,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
 	drop = 'bobblocks:'..colour..'pole',
+	on_punch = function(pos)
+		update_bobblock(pos, colour.."pole")
+	end,
 	mesecons = {conductor={
 			state = mesecon.state.off,
 			onstate = "bobblocks:"..colour.."pole"
@@ -207,76 +190,44 @@ minetest.register_craft({
 	},
 })
 
-minetest.register_craft({
-	output = 'NodeItem "bobblocks:greyblock" 2',
-	recipe = {
-		{'node "default:glass" 1', 'node "default:torch" 1', 'node "default:cobble" 1'},
+
+local bobblocks_crafts_list = {
+	{
+		{"grey", "cobble"},
+		{"red", "brick"},
+		{"yellow", "sand"},
+		{"blue", "gravel"},
+		{"white", "dirt"},
 	},
-})
-
--- Red / Yellow / Blue / White
--- Red / Yellow -> Orange
--- Red / Blue -> Violet
--- Blue / Yellow -> Green
--- Red / Yellow / White -> Indigo
-
-minetest.register_craft({
-	output = 'NodeItem "bobblocks:redblock" 2',
-	recipe = {
-		{'node "default:glass" 1', 'node "default:torch" 1', 'node "default:brick" 1'},
+	{
+		{"orange", "red", "yellow"},
+		{"violet", "red", "blue"},
+		{"green", "blue", "yellow"},
 	},
-})
-minetest.register_craft({
-	output = 'NodeItem "bobblocks:yellowblock" 2',
-	recipe = {
-		{'node "default:glass" 1', 'node "default:torch" 1', 'node "default:sand" 1'},
-	},
-})
-minetest.register_craft({
-	output = 'NodeItem "bobblocks:blueblock" 2',
-	recipe = {
-		{'node "default:glass" 1', 'node "default:torch" 1', 'node "default:gravel" 1'},
-	},
-})
+}
+
+for _,items in ipairs(bobblocks_crafts_list[1]) do
+	minetest.register_craft({
+		output = "bobblocks:"..items[1].."block 2",
+		recipe = {
+			{"default:glass", "default:torch", "default:"..items[2]},
+		},
+	})
+end
+
+for _,items in ipairs(bobblocks_crafts_list[2]) do
+	minetest.register_craft({
+		output = "bobblocks:"..items[1].."block 2",
+		recipe = {
+			{"bobblocks:"..items[2].."block", "bobblocks:"..items[3].."block"},
+		},
+	})
+end
 
 minetest.register_craft({
-	output = 'NodeItem "bobblocks:whiteblock" 2',
+	output = "bobblocks:indigoblock 3",
 	recipe = {
-		{'node "default:glass" 1', 'node "default:torch" 1', 'node "default:dirt" 1'},
-	},
-})
-
-
-minetest.register_craft({
-	output = 'NodeItem "bobblocks:orangeblock" 2',
-	recipe = {
-		{'node "bobblocks:redblock" 1', 'node "bobblocks:yellowblock" 1'},
-
-	},
-})
-
-
-minetest.register_craft({
-	output = 'NodeItem "bobblocks:violetblock" 2',
-	recipe = {
-		{'node "bobblocks:redblock" 1', 'node "bobblocks:blueblock" 1'},
-
-	},
-})
-
-minetest.register_craft({
-	output = 'NodeItem "bobblocks:greenblock" 2',
-	recipe = {
-		{'node "bobblocks:blueblock" 1', 'node "bobblocks:yellowblock" 1'},
-
-	},
-})
-
-
-minetest.register_craft({
-	output = 'NodeItem "bobblocks:indigoblock" 3',
-	recipe = {
-		{'node "bobblocks:redblock" 1', 'node "bobblocks:blueblock" 1', 'node "bobblocks:whiteblock" 1'},
+		{"bobblocks:redblock", "bobblocks:blueblock", "bobblocks:whiteblock"},
 
 	},
 })
@@ -284,9 +235,9 @@ minetest.register_craft({
 -- Poles
 
 minetest.register_craft({
-	output = 'NodeItem "bobblocks:greypole" 1',
+	output = 'bobblocks:greypole',
 	recipe = {
-		{'node "bobblocks:greyblock" 1', 'node "default:stick" 1'},
+		{"bobblocks:greyblock", "default:stick"},
 
 	},
 })
