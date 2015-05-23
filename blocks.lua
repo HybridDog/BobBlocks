@@ -245,4 +245,3 @@ minetest.register_craft({
 
 -- MESECON
 -- Add jeija to bobblocks\default.txt and paste the below in at the bottom of bobblocks\blocks.lua
-
