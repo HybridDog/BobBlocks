@@ -19,7 +19,7 @@ end
 
 minetest.register_node("bobblocks:btm", {
 	description = "Bobs TransMorgifier v5",
-    tiles = {"bobblocks_btm_sides.png", "bobblocks_btm_sides.png", "bobblocks_btm_sides.png",
+	tiles = {"bobblocks_btm_sides.png", "bobblocks_btm_sides.png", "bobblocks_btm_sides.png",
 		"bobblocks_btm_sides.png", "bobblocks_btm_sides.png", "bobblocks_btm.png"},
 	inventory_image = "bobblocks_btm.png",
 	paramtype2 = "facedir",
