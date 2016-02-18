@@ -31,106 +31,103 @@ minetest.register_node("bobblocks:btm", {
 
 
 
-for _, colour in ipairs(bobblock_colours) do
+for _, colour in pairs(bobblock_colours) do
+	--Blocks
 
-
---Blocks
-
-minetest.register_node("bobblocks:"..colour.."block", {
-	description = colour.." Block",
-	drawtype = "glasslike",
-	tiles = {"bobblocks_"..colour.."block.png"},
-	inventory_image = minetest.inventorycube("bobblocks_"..colour.."block.png"),
-	paramtype = "light",
-	sunlight_propagates = true,
-	is_ground_content = true,
-	sounds = default.node_sound_glass_defaults(),
-	light_source = LIGHT_MAX-0,
-	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
-	on_punch = function(pos)
-		update_bobblock(pos, colour.."block_off")
-	end,
-	mesecons = {
-		conductor={
-			state = mesecon.state.on,
-			offstate = "bobblocks:"..colour.."block_off"
+	minetest.register_node("bobblocks:"..colour.."block", {
+		description = colour.." Block",
+		drawtype = "glasslike",
+		tiles = {"bobblocks_"..colour.."block.png"},
+		inventory_image = minetest.inventorycube("bobblocks_"..colour.."block.png"),
+		paramtype = "light",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		sounds = default.node_sound_glass_defaults(),
+		light_source = LIGHT_MAX-0,
+		groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+		on_punch = function(pos)
+			update_bobblock(pos, colour.."block_off")
+		end,
+		mesecons = {
+			conductor={
+				state = mesecon.state.on,
+				offstate = "bobblocks:"..colour.."block_off"
+			}
 		}
-	}
-})
+	})
 
-minetest.register_node("bobblocks:"..colour.."block_off", {
-	description = colour.." Block",
-	tiles = {"bobblocks_"..colour.."block.png"},
-	is_ground_content = true,
-	alpha = WATER_ALPHA,
-	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
-	drop = 'bobblocks:'..colour..'block',
-	on_punch = function(pos)
-		update_bobblock(pos, colour.."block")
-	end,
-	mesecons = {
-		conductor={
-			state = mesecon.state.off,
-			onstate = "bobblocks:"..colour.."block"
+	minetest.register_node("bobblocks:"..colour.."block_off", {
+		description = colour.." Block",
+		tiles = {"bobblocks_"..colour.."block.png"},
+		is_ground_content = true,
+		alpha = WATER_ALPHA,
+		groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
+		drop = 'bobblocks:'..colour..'block',
+		on_punch = function(pos)
+			update_bobblock(pos, colour.."block")
+		end,
+		mesecons = {
+			conductor={
+				state = mesecon.state.off,
+				onstate = "bobblocks:"..colour.."block"
+			}
 		}
-	}
-})
+	})
 
 
---Poles
+	--Poles
 
-minetest.register_node("bobblocks:"..colour.."pole", {
-	description = colour.." Pole",
-	drawtype = "fencelike",
-	tiles = {"bobblocks_"..colour.."block.png"},
-	inventory_image = ("bobblocks_inv"..colour.."pole.png"),
-	paramtype = "light",
-	sunlight_propagates = true,
-	is_ground_content = true,
-	sounds = default.node_sound_glass_defaults(),
-	light_source = LIGHT_MAX-0,
-	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
-	on_punch = function(pos)
-		update_bobblock(pos, colour.."pole_off")
-	end,
-	mesecons = {conductor={
-			state = mesecon.state.on,
-			offstate = "bobblocks:"..colour.."pole_off"
-		}}
-})
+	minetest.register_node("bobblocks:"..colour.."pole", {
+		description = colour.." Pole",
+		drawtype = "fencelike",
+		tiles = {"bobblocks_"..colour.."block.png"},
+		inventory_image = ("bobblocks_inv"..colour.."pole.png"),
+		paramtype = "light",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		sounds = default.node_sound_glass_defaults(),
+		light_source = LIGHT_MAX-0,
+		groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+		on_punch = function(pos)
+			update_bobblock(pos, colour.."pole_off")
+		end,
+		mesecons = {conductor={
+				state = mesecon.state.on,
+				offstate = "bobblocks:"..colour.."pole_off"
+			}}
+	})
 
-minetest.register_node("bobblocks:"..colour.."pole_off", {
-	description = colour.." Pole",
-	drawtype = "fencelike",
-	tiles = {"bobblocks_"..colour.."block.png"},
-	inventory_image = ("bobblocks_inv"..colour.."pole.png"),
-	paramtype = "light",
-	sunlight_propagates = true,
-	is_ground_content = true,
-	sounds = default.node_sound_glass_defaults(),
-	light_source = LIGHT_MAX-10,
-	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
-	drop = 'bobblocks:'..colour..'pole',
-	on_punch = function(pos)
-		update_bobblock(pos, colour.."pole")
-	end,
-	mesecons = {conductor={
+	minetest.register_node("bobblocks:"..colour.."pole_off", {
+		description = colour.." Pole",
+		drawtype = "fencelike",
+		tiles = {"bobblocks_"..colour.."block.png"},
+		inventory_image = ("bobblocks_inv"..colour.."pole.png"),
+		paramtype = "light",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		sounds = default.node_sound_glass_defaults(),
+		light_source = LIGHT_MAX-10,
+		groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
+		drop = 'bobblocks:'..colour..'pole',
+		on_punch = function(pos)
+			update_bobblock(pos, colour.."pole")
+		end,
+		mesecons = {conductor={
 			state = mesecon.state.off,
 			onstate = "bobblocks:"..colour.."pole"
 		}}
+	})
 
-})
 
+	--Crafts
 
---Crafts
+	minetest.register_craft({
+		output = "bobblocks:"..colour.."pole",
+		recipe = {
+			{"bobblocks:"..colour.."block", "default:stick"},
 
-minetest.register_craft({
-	output = "bobblocks:"..colour.."pole",
-	recipe = {
-		{"bobblocks:"..colour.."block", "default:stick"},
-
-	},
-})
+		},
+	})
 end
 
 minetest.register_node("bobblocks:greyblock", {
@@ -145,9 +142,9 @@ minetest.register_node("bobblocks:greyblock", {
 	light_source = LIGHT_MAX-0,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 	mesecons = {conductor={
-			state = mesecon.state.on,
-			offstate = "bobblocks:greyblock_off"
-		}}
+		state = mesecon.state.on,
+		offstate = "bobblocks:greyblock_off"
+	}}
 })
 
 minetest.register_node("bobblocks:greyblock_off", {
@@ -158,10 +155,9 @@ minetest.register_node("bobblocks:greyblock_off", {
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
 	drop = 'bobblocks:greyblock',
 	mesecons = {conductor={
-			state = mesecon.state.off,
-			onstate = "bobblocks:greyblock"
-		}}
-
+		state = mesecon.state.off,
+		onstate = "bobblocks:greyblock"
+	}}
 })
 
 minetest.register_node("bobblocks:greypole", {
@@ -190,23 +186,13 @@ minetest.register_craft({
 	},
 })
 
-
-local bobblocks_crafts_list = {
-	{
-		{"grey", "cobble"},
-		{"red", "brick"},
-		{"yellow", "sand"},
-		{"blue", "gravel"},
-		{"white", "dirt"},
-	},
-	{
-		{"orange", "red", "yellow"},
-		{"violet", "red", "blue"},
-		{"green", "blue", "yellow"},
-	},
-}
-
-for _,items in ipairs(bobblocks_crafts_list[1]) do
+for _,items in pairs({
+	{"grey", "cobble"},
+	{"red", "brick"},
+	{"yellow", "sand"},
+	{"blue", "gravel"},
+	{"white", "dirt"},
+}) do
 	minetest.register_craft({
 		output = "bobblocks:"..items[1].."block 2",
 		recipe = {
@@ -215,7 +201,11 @@ for _,items in ipairs(bobblocks_crafts_list[1]) do
 	})
 end
 
-for _,items in ipairs(bobblocks_crafts_list[2]) do
+for _,items in pairs({
+	{"orange", "red", "yellow"},
+	{"violet", "red", "blue"},
+	{"green", "blue", "yellow"},
+}) do
 	minetest.register_craft({
 		output = "bobblocks:"..items[1].."block 2",
 		recipe = {
@@ -228,7 +218,6 @@ minetest.register_craft({
 	output = "bobblocks:indigoblock 3",
 	recipe = {
 		{"bobblocks:redblock", "bobblocks:blueblock", "bobblocks:whiteblock"},
-
 	},
 })
 
@@ -238,7 +227,6 @@ minetest.register_craft({
 	output = 'bobblocks:greypole',
 	recipe = {
 		{"bobblocks:greyblock", "default:stick"},
-
 	},
 })
 
