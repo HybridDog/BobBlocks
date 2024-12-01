@@ -31,7 +31,6 @@ minetest.register_node("bobblocks:trap_grass", {
 	paramtype2 = "facedir",
 	legacy_facedir_simple = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
-	is_ground_content = false,
 	walkable = false,
 	climbable = false,
 })

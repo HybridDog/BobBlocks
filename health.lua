@@ -7,7 +7,6 @@ minetest.register_node("bobblocks:health_off", {
 	paramtype2 = "facedir",
 	legacy_facedir_simple = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
-	is_ground_content = true,
 	walkable = false,
 	climbable = false,
 	on_punch = function(pos, ...)
@@ -27,7 +26,6 @@ minetest.register_node("bobblocks:health_on", {
 	legacy_facedir_simple = true,
 	light_source = 14,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
-	is_ground_content = true,
 	walkable = false,
 	climbable = false,
 	drop = "bobblocks:health_off",
