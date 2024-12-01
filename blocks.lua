@@ -5,7 +5,7 @@ local update_bobblock = function (pos, node)
     local nodename=""
     local param2=""
     --Switch Block State
-    if 
+    if
     -- Start Blocks
         node.name == 'bobblocks:redblock_off' then nodename = 'bobblocks:redblock'
     elseif node.name == 'bobblocks:redblock' then nodename = 'bobblocks:redblock_off'
@@ -14,15 +14,15 @@ local update_bobblock = function (pos, node)
     elseif node.name == 'bobblocks:yellowblock_off' then nodename = 'bobblocks:yellowblock'
     elseif node.name == 'bobblocks:yellowblock' then nodename = 'bobblocks:yellowblock_off'
     elseif node.name == 'bobblocks:greenblock_off' then nodename = 'bobblocks:greenblock'
-    elseif node.name == 'bobblocks:greenblock' then nodename = 'bobblocks:greenblock_off'        
+    elseif node.name == 'bobblocks:greenblock' then nodename = 'bobblocks:greenblock_off'
     elseif node.name == 'bobblocks:blueblock_off' then nodename = 'bobblocks:blueblock'
     elseif node.name == 'bobblocks:blueblock' then nodename = 'bobblocks:blueblock_off'
     elseif node.name == 'bobblocks:indigoblock_off' then nodename = 'bobblocks:indigoblock'
-    elseif node.name == 'bobblocks:indigoblock' then nodename = 'bobblocks:indigoblock_off'    
+    elseif node.name == 'bobblocks:indigoblock' then nodename = 'bobblocks:indigoblock_off'
     elseif node.name == 'bobblocks:violetblock_off' then nodename = 'bobblocks:violetblock'
     elseif node.name == 'bobblocks:violetblock' then nodename = 'bobblocks:violetblock_off'
     elseif node.name == 'bobblocks:whiteblock_off' then nodename = 'bobblocks:whiteblock'
-    elseif node.name == 'bobblocks:whiteblock' then nodename = 'bobblocks:whiteblock_off'    
+    elseif node.name == 'bobblocks:whiteblock' then nodename = 'bobblocks:whiteblock_off'
     -- Start Poles
     elseif node.name == 'bobblocks:redpole_off' then nodename = 'bobblocks:redpole'
     elseif node.name == 'bobblocks:redpole' then nodename = 'bobblocks:redpole_off'
@@ -31,27 +31,27 @@ local update_bobblock = function (pos, node)
     elseif node.name == 'bobblocks:yellowpole_off' then nodename = 'bobblocks:yellowpole'
     elseif node.name == 'bobblocks:yellowpole' then nodename = 'bobblocks:yellowpole_off'
     elseif node.name == 'bobblocks:greenpole_off' then nodename = 'bobblocks:greenpole'
-    elseif node.name == 'bobblocks:greenpole' then nodename = 'bobblocks:greenpole_off'        
+    elseif node.name == 'bobblocks:greenpole' then nodename = 'bobblocks:greenpole_off'
     elseif node.name == 'bobblocks:bluepole_off' then nodename = 'bobblocks:bluepole'
     elseif node.name == 'bobblocks:bluepole' then nodename = 'bobblocks:bluepole_off'
     elseif node.name == 'bobblocks:indigopole_off' then nodename = 'bobblocks:indigopole'
-    elseif node.name == 'bobblocks:indigopole' then nodename = 'bobblocks:indigopole_off'    
+    elseif node.name == 'bobblocks:indigopole' then nodename = 'bobblocks:indigopole_off'
     elseif node.name == 'bobblocks:violetpole_off' then nodename = 'bobblocks:violetpole'
     elseif node.name == 'bobblocks:violetpole' then nodename = 'bobblocks:violetpole_off'
     elseif node.name == 'bobblocks:whitepole_off' then nodename = 'bobblocks:whitepole'
-    elseif node.name == 'bobblocks:whitepole' then nodename = 'bobblocks:whitepole_off' 
+    elseif node.name == 'bobblocks:whitepole' then nodename = 'bobblocks:whitepole_off'
     end
     minetest.add_node(pos, {name = nodename})
     minetest.sound_play("bobblocks_glassblock",
 	{pos = pos, gain = 1.0, max_hear_distance = 32,})
 end
 
-    
--- Punch Blocks    
+
+-- Punch Blocks
 local on_bobblock_punched = function (pos, node, puncher)
-    if 
+    if
        -- Start Blocks
-       node.name == 'bobblocks:redblock_off' or node.name == 'bobblocks:redblock' or 
+       node.name == 'bobblocks:redblock_off' or node.name == 'bobblocks:redblock' or
        node.name == 'bobblocks:orangeblock_off' or node.name == 'bobblocks:orangeblock' or
        node.name == 'bobblocks:yellowblock_off' or node.name == 'bobblocks:yellowblock' or
        node.name == 'bobblocks:greenblock_off' or node.name == 'bobblocks:greenblock' or
@@ -60,14 +60,14 @@ local on_bobblock_punched = function (pos, node, puncher)
        node.name == 'bobblocks:violetblock_off' or node.name == 'bobblocks:violetblock' or
        node.name == 'bobblocks:whiteblock_off' or node.name == 'bobblocks:whiteblock' or
        --Start Poles
-       node.name == 'bobblocks:redpole_off' or node.name == 'bobblocks:redpole' or 
+       node.name == 'bobblocks:redpole_off' or node.name == 'bobblocks:redpole' or
        node.name == 'bobblocks:orangepole_off' or node.name == 'bobblocks:orangepole' or
        node.name == 'bobblocks:yellowpole_off' or node.name == 'bobblocks:yellowpole' or
        node.name == 'bobblocks:greenpole_off' or node.name == 'bobblocks:greenpole' or
        node.name == 'bobblocks:bluepole_off' or node.name == 'bobblocks:bluepole' or
        node.name == 'bobblocks:indigopole_off' or node.name == 'bobblocks:indigopole' or
        node.name == 'bobblocks:violetpole_off' or node.name == 'bobblocks:violetpole' or
-       node.name == 'bobblocks:whitepole_off' or node.name == 'bobblocks:whitepole' 
+       node.name == 'bobblocks:whitepole_off' or node.name == 'bobblocks:whitepole'
     then
         update_bobblock(pos, node)
     end
@@ -87,7 +87,7 @@ minetest.register_node("bobblocks:btm", {
 	material = minetest.digprop_dirtlike(1.0),
 	legacy_facedir_simple = true,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
-    
+
 })
 
 
@@ -120,7 +120,7 @@ minetest.register_node("bobblocks:redblock_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:redblock"
 		}}
-    
+
 })
 
 minetest.register_node("bobblocks:orangeblock", {
@@ -151,7 +151,7 @@ minetest.register_node("bobblocks:orangeblock_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:orangeblock"
 		}}
-    
+
 })
 
 minetest.register_node("bobblocks:yellowblock", {
@@ -182,7 +182,7 @@ minetest.register_node("bobblocks:yellowblock_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:yellowblock"
 		}}
-    
+
 })
 
 minetest.register_node("bobblocks:greenblock", {
@@ -213,7 +213,7 @@ minetest.register_node("bobblocks:greenblock_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:greenblock"
 		}}
-    
+
 })
 
 
@@ -245,7 +245,7 @@ minetest.register_node("bobblocks:blueblock_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:blueblock"
 		}}
-    
+
 })
 
 minetest.register_node("bobblocks:indigoblock", {
@@ -276,7 +276,7 @@ minetest.register_node("bobblocks:indigoblock_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:indigoblock"
 		}}
-    
+
 })
 
 
@@ -308,7 +308,7 @@ minetest.register_node("bobblocks:violetblock_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:violetblock"
 		}}
-    
+
 })
 
 minetest.register_node("bobblocks:whiteblock", {
@@ -339,7 +339,7 @@ minetest.register_node("bobblocks:whiteblock_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:whiteblock"
 		}}
-    
+
 })
 
 
@@ -371,7 +371,7 @@ minetest.register_node("bobblocks:greyblock_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:greyblock"
 		}}
-    
+
 })
 
 
@@ -409,7 +409,7 @@ minetest.register_node("bobblocks:redpole_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:redpole"
 		}}
-    
+
 })
 
 minetest.register_node("bobblocks:orangepole", {
@@ -445,7 +445,7 @@ minetest.register_node("bobblocks:orangepole_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:orangepole"
 		}}
-    
+
 })
 
 minetest.register_node("bobblocks:yellowpole", {
@@ -481,7 +481,7 @@ minetest.register_node("bobblocks:yellowpole_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:yellowpole"
 		}}
-    
+
 })
 
 minetest.register_node("bobblocks:greenpole", {
@@ -517,7 +517,7 @@ minetest.register_node("bobblocks:greenpole_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:greenpole"
 		}}
-    
+
 })
 
 minetest.register_node("bobblocks:bluepole", {
@@ -553,7 +553,7 @@ minetest.register_node("bobblocks:bluepole_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:bluepole"
 		}}
-    
+
 })
 
 minetest.register_node("bobblocks:indigopole", {
@@ -589,7 +589,7 @@ minetest.register_node("bobblocks:indigopole_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:indigopole"
 		}}
-    
+
 })
 
 minetest.register_node("bobblocks:violetpole", {
@@ -625,7 +625,7 @@ minetest.register_node("bobblocks:violetpole_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:violetpole"
 		}}
-    
+
 })
 
 minetest.register_node("bobblocks:whitepole", {
@@ -661,7 +661,7 @@ minetest.register_node("bobblocks:whitepole_off", {
 			state = mesecon.state.off,
 			onstate = "bobblocks:whitepole"
 		}}
-    
+
 })
 
 minetest.register_node("bobblocks:greypole", {
@@ -691,7 +691,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'NodeItem "bobblocks:greyblock" 2', 
+	output = 'NodeItem "bobblocks:greyblock" 2',
 	recipe = {
 		{'node "default:glass" 1', 'node "default:torch" 1', 'node "default:cobble" 1'},
 	},
@@ -704,26 +704,26 @@ minetest.register_craft({
 -- Red / Yellow / White -> Indigo
 
 minetest.register_craft({
-	output = 'NodeItem "bobblocks:redblock" 2', 
+	output = 'NodeItem "bobblocks:redblock" 2',
 	recipe = {
 		{'node "default:glass" 1', 'node "default:torch" 1', 'node "default:brick" 1'},
 	},
 })
 minetest.register_craft({
-	output = 'NodeItem "bobblocks:yellowblock" 2', 
+	output = 'NodeItem "bobblocks:yellowblock" 2',
 	recipe = {
 		{'node "default:glass" 1', 'node "default:torch" 1', 'node "default:sand" 1'},
 	},
 })
 minetest.register_craft({
-	output = 'NodeItem "bobblocks:blueblock" 2', 
+	output = 'NodeItem "bobblocks:blueblock" 2',
 	recipe = {
 		{'node "default:glass" 1', 'node "default:torch" 1', 'node "default:gravel" 1'},
 	},
 })
 
 minetest.register_craft({
-	output = 'NodeItem "bobblocks:whiteblock" 2', 
+	output = 'NodeItem "bobblocks:whiteblock" 2',
 	recipe = {
 		{'node "default:glass" 1', 'node "default:torch" 1', 'node "default:dirt" 1'},
 	},

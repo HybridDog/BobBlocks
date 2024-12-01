@@ -14,7 +14,7 @@
 -- Colored Lit Blocks
 ---- Default state = Solid lit block
 ---- Secondary state (punch) = transparent unlit block
----- Mesecons activation [CONDUCTOR] 
+---- Mesecons activation [CONDUCTOR]
 -- Colored Lit Poles
 ---- Default state = Solid lit block
 ---- Secondary state (punch) = unlit block
@@ -37,7 +37,7 @@
 
 # [GRAPHICS]
 # minor & major spikes by Death Dealer
-# License: WTFPL 
+# License: WTFPL
 # http://minetest.net/forum/viewtopic.php?id=1582
 
 # [SOUNDS]
