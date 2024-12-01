@@ -58,9 +58,10 @@ for i = 1, #bobblock_colours do
 
 	minetest.register_node("bobblocks:" ..  colour .. "block_off", {
 		description = colour_capitalised .. " Block",
-		tiles = {"bobblocks_" ..  colour .. "block.png"},
+		tiles = {"bobblocks_" ..  colour .. "block.png^[opacity:200"},
+		drawtype = "liquid",
+		use_texture_alpha = "blend",
 		is_ground_content = true,
-		alpha = WATER_ALPHA,
 		groups = {snappy=2, cracky=3, oddly_breakable_by_hand=3,
 			not_in_creative_inventory=1},
 		drop = "bobblocks:" ..  colour .. "block",
@@ -142,9 +143,9 @@ minetest.register_node("bobblocks:greyblock", {
 
 minetest.register_node("bobblocks:greyblock_off", {
 	description = "Grey Block",
-	tiles = {"bobblocks_greyblock.png"},
+	tiles = {"bobblocks_greyblock.png^[opacity:200"},
+	drawtype = "liquid",
 	is_ground_content = true,
-	alpha = WATER_ALPHA,
 	groups = {snappy=2, cracky=3, oddly_breakable_by_hand=3,
 		not_in_creative_inventory=1},
 	drop = "bobblocks:greyblock",
