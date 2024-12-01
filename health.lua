@@ -40,6 +40,10 @@ minetest.register_node("bobblocks:health_off", {
     is_ground_content = true,
     walkable = false,
     climbable = false,
+    mesecons = {conductor={
+			state = mesecon.state.off,
+			onstate = "bobblocks:health_on"
+		}}
 })
 
 minetest.register_node("bobblocks:health_on", {
@@ -53,6 +57,10 @@ minetest.register_node("bobblocks:health_on", {
         walkable = false,
     climbable = false,
     drop = "bobblocks:health_off",
+        mesecons = {conductor={
+			state = mesecon.state.on,
+			offstate = "bobblocks:health_off"
+		}}
 })
 
 

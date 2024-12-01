@@ -1,26 +1,25 @@
--- BobBlocks v0.0.6
--- (Minetest 0.4 mod Compatible 20120408)
--- http://c55.me/minetest/forum/viewtopic.php?id=1274
+-- BobBlocks v0.0.7
+-- (Minetest 0.4 mod Compatible 20130128)
+-- http://forum.minetest.net/viewtopic.php?id=1274
 ------------------------------------------------------------------
 ------------------------------------------------------------------
---          Requirements: Jeija or Mesecons                     --
---          c55.me/minetest/forum/viewtopic.php?id=628          --
---          You must edit depends.txt and add either jeija or   --
---          mesecons depending on whether or not you're using   --
---          jejia v.05 or mesecons pulled from GitHub           --
+--          Requirements: Mesecons > 1/20/2013                  --
+--          http://forum.minetest.net/viewtopic.php?id=628      --
+--          Does not support jeija or older version of Mesecons --
 ------------------------------------------------------------------
 ------------------------------------------------------------------
 -- Colored Lit Blocks
 ---- Default state = Solid lit block
 ---- Secondary state (punch) = transparent unlit block
----- Mesecons activation 
+---- Mesecons activation [CONDUCTOR] 
 -- Colored Lit Poles
 ---- Default state = Solid lit block
 ---- Secondary state (punch) = unlit block
----- Mesecons activation 
+---- Mesecons activation [CONDUCTOR]
 -- Health Kit
 ---- Default state = health kit inactive
 ---- Secondary state (punch) = health kit active +10HP when walked through
+---- Mesecons activation [CONDUCTOR]
 -- Trap
 ---- Default Grass (walkable off)
 ---- Spike Minor (1HP per hit)
@@ -28,7 +27,7 @@
 ---- Spike Major (100HP per hit)
 ------ Spikes can be 'set' and activated when walked over
 
-# Attribution
+# [ATTRIBUTION]
 # Unless otherwise noted, all graphics & sounds
 # created by Rabbi Bob
 # Licensed under the GPLv2/later
