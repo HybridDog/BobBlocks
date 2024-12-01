@@ -1,52 +1,50 @@
 --ABM (Spring The Traps)
 
-minetest.register_abm(
-	{nodenames = {"bobblocks:trap_spike_set"},
-    interval = 1.0,
-    chance = 1,
-    action = function(pos, node, active_object_count, active_object_count_wider)
+minetest.register_abm({
+	nodenames = {"bobblocks:trap_spike_set"},
+	interval = 1.0,
+	chance = 1,
+	action = function(pos, node, active_object_count, active_object_count_wider)
 		if next(minetest.get_objects_inside_radius(pos, 1)) then
 			minetest.add_node(pos, {name = "bobblocks:trap_spike"})
 		end
-    end,
-
+	end,
 })
 
-minetest.register_abm(
-	{nodenames = {"bobblocks:trap_spike_major_set"},
-    interval = 1.0,
-    chance = 1,
-    action = function(pos, node, active_object_count, active_object_count_wider)
+minetest.register_abm({
+	nodenames = {"bobblocks:trap_spike_major_set"},
+	interval = 1.0,
+	chance = 1,
+	action = function(pos, node, active_object_count, active_object_count_wider)
 		if next(minetest.get_objects_inside_radius(pos, 1)) then
 			minetest.add_node(pos, {name = "bobblocks:trap_spike_major"})
 		end
-    end,
+	end,
 })
 
 
-
-
 -- Nodes
+
 minetest.register_node("bobblocks:trap_grass", {
 	description = "Trap Grass",
-    tiles = {"default_grass.png"},
+	tiles = {"default_grass.png"},
 	paramtype2 = "facedir",
 	legacy_facedir_simple = true,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
-    is_ground_content = false,
-        walkable = false,
-    climbable = false,
+	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+	is_ground_content = false,
+	walkable = false,
+	climbable = false,
 })
 
 minetest.register_node("bobblocks:trap_spike", {
 	description = "Trap Spike Minor",
-    drawtype = "plantlike",
+	drawtype = "plantlike",
 	tiles = {"bobblocks_minorspike.png"},
 	inventory_image = ("bobblocks_minorspike.png"),
-    paramtype = "light",
-    walkable = false,
+	paramtype = "light",
+	walkable = false,
 	sunlight_propagates = true,
-    groups = {cracky=3,melty=3},
+	groups = {cracky=3,melty=3},
 	on_punch = function(pos, ...)
 		minetest.add_node(pos, {name = "bobblocks:trap_spike_set"})
 		return minetest.node_punch(pos, ...)
@@ -55,13 +53,13 @@ minetest.register_node("bobblocks:trap_spike", {
 
 minetest.register_node("bobblocks:trap_spike_set", {
 	description = "Trap Spike Minor Set",
-    drawtype = "raillike",
+	drawtype = "raillike",
 	tiles = {"bobblocks_trap_set.png"},
-    paramtype = "light",
-    walkable = false,
+	paramtype = "light",
+	walkable = false,
 	sunlight_propagates = true,
-    groups = {cracky=3,melty=3,not_in_creative_inventory=1},
-    drop = 'bobblocks:trap_spike',
+	groups = {cracky=3,melty=3,not_in_creative_inventory=1},
+	drop = 'bobblocks:trap_spike',
 	on_punch = function(pos, ...)
 		minetest.add_node(pos, {name = "bobblocks:trap_spike"})
 		return minetest.node_punch(pos, ...)
@@ -71,13 +69,13 @@ minetest.register_node("bobblocks:trap_spike_set", {
 
 minetest.register_node("bobblocks:trap_spike_major", {
 	description = "Trap Spike Major",
-    drawtype = "plantlike",
+	drawtype = "plantlike",
 	tiles = {"bobblocks_majorspike.png"},
 	inventory_image = ("bobblocks_majorspike.png"),
-    paramtype = "light",
-    walkable = false,
+	paramtype = "light",
+	walkable = false,
 	sunlight_propagates = true,
-    groups = {cracky=2,melty=2},
+	groups = {cracky=2,melty=2},
 	on_punch = function(pos, ...)
 		minetest.add_node(pos, {name = "bobblocks:trap_spike_major_set"})
 		return minetest.node_punch(pos, ...)
@@ -86,13 +84,13 @@ minetest.register_node("bobblocks:trap_spike_major", {
 
 minetest.register_node("bobblocks:trap_spike_major_set", {
 	description = "Trap Spike Major Set",
-    drawtype = "raillike",
+	drawtype = "raillike",
 	tiles = {"bobblocks_trap_set.png"},
-    paramtype = "light",
-    walkable = false,
+	paramtype = "light",
+	walkable = false,
 	sunlight_propagates = true,
-    groups = {cracky=3,melty=3,not_in_creative_inventory=1},
-    drop = 'bobblocks:trap_spike_major',
+	groups = {cracky=3,melty=3,not_in_creative_inventory=1},
+	drop = 'bobblocks:trap_spike_major',
 	on_punch = function(pos, ...)
 		minetest.add_node(pos, {name = "bobblocks:trap_spike_major"})
 		return minetest.node_punch(pos, ...)
@@ -129,32 +127,33 @@ minetest.register_craft({
 	}
 })
 
+
 -- ABM
-minetest.register_abm(
-	{nodenames = {"bobblocks:trap_spike"},
-    interval = 1.0,
-    chance = 1,
-    action = function(pos, node, active_object_count, active_object_count_wider)
-    local objs = minetest.get_objects_inside_radius(pos, 1)
-        for k, obj in pairs(objs) do
-        obj:set_hp(obj:get_hp()-1)
-        minetest.sound_play("bobblocks_trap_fall",
-	    {pos = pos, gain = 1.0, max_hear_distance = 3,})
-    end
-    end,
+
+minetest.register_abm({
+	nodenames = {"bobblocks:trap_spike"},
+	interval = 1.0,
+	chance = 1,
+	action = function(pos, node, active_object_count, active_object_count_wider)
+		local objs = minetest.get_objects_inside_radius(pos, 1)
+		for k, obj in pairs(objs) do
+			obj:set_hp(obj:get_hp()-1)
+			minetest.sound_play("bobblocks_trap_fall",
+				{pos = pos, gain = 1.0, max_hear_distance = 3,})
+		end
+	end,
 })
 
-minetest.register_abm(
-	{nodenames = {"bobblocks:trap_spike_major"},
-    interval = 1.0,
-    chance = 1,
-    action = function(pos, node, active_object_count, active_object_count_wider)
-    local objs = minetest.get_objects_inside_radius(pos, 1)
-        for k, obj in pairs(objs) do
-            obj:set_hp(obj:get_hp()-100)
-        minetest.sound_play("bobblocks_trap_fall",
-	    {pos = pos, gain = 1.0, max_hear_distance = 3,})
-        end
-    end,
-
+minetest.register_abm({
+	nodenames = {"bobblocks:trap_spike_major"},
+	interval = 1.0,
+	chance = 1,
+	action = function(pos, node, active_object_count, active_object_count_wider)
+		local objs = minetest.get_objects_inside_radius(pos, 1)
+		for k, obj in pairs(objs) do
+			obj:set_hp(obj:get_hp()-100)
+			minetest.sound_play("bobblocks_trap_fall",
+				{pos = pos, gain = 1.0, max_hear_distance = 3,})
+		end
+	end,
 })
