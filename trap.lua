@@ -4,7 +4,7 @@ minetest.register_abm({
 	nodenames = {"bobblocks:trap_spike_set"},
 	interval = 1.0,
 	chance = 1,
-	action = function(pos, node, active_object_count, active_object_count_wider)
+	action = function(pos)
 		if next(minetest.get_objects_inside_radius(pos, 1)) then
 			minetest.add_node(pos, {name = "bobblocks:trap_spike"})
 		end
@@ -15,7 +15,7 @@ minetest.register_abm({
 	nodenames = {"bobblocks:trap_spike_major_set"},
 	interval = 1.0,
 	chance = 1,
-	action = function(pos, node, active_object_count, active_object_count_wider)
+	action = function(pos)
 		if next(minetest.get_objects_inside_radius(pos, 1)) then
 			minetest.add_node(pos, {name = "bobblocks:trap_spike_major"})
 		end
@@ -134,12 +134,11 @@ minetest.register_abm({
 	nodenames = {"bobblocks:trap_spike"},
 	interval = 1.0,
 	chance = 1,
-	action = function(pos, node, active_object_count, active_object_count_wider)
-		local objs = minetest.get_objects_inside_radius(pos, 1)
-		for k, obj in pairs(objs) do
-			obj:set_hp(obj:get_hp()-1)
+	action = function(pos)
+		for _,obj in pairs(minetest.get_objects_inside_radius(pos, 1)) do
+			obj:set_hp(obj:get_hp() - 1)
 			minetest.sound_play("bobblocks_trap_fall",
-				{pos = pos, gain = 1.0, max_hear_distance = 3,})
+				{pos = pos, max_hear_distance = 3,})
 		end
 	end,
 })
@@ -148,12 +147,11 @@ minetest.register_abm({
 	nodenames = {"bobblocks:trap_spike_major"},
 	interval = 1.0,
 	chance = 1,
-	action = function(pos, node, active_object_count, active_object_count_wider)
-		local objs = minetest.get_objects_inside_radius(pos, 1)
-		for k, obj in pairs(objs) do
-			obj:set_hp(obj:get_hp()-100)
+	action = function(pos)
+		for _,obj in pairs(minetest.get_objects_inside_radius(pos, 1)) do
+			obj:set_hp(obj:get_hp() - 100)
 			minetest.sound_play("bobblocks_trap_fall",
-				{pos = pos, gain = 1.0, max_hear_distance = 3,})
+				{pos = pos, max_hear_distance = 3,})
 		end
 	end,
 })

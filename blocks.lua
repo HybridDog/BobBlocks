@@ -12,7 +12,6 @@ local function switch_block_state(pos, new_node_name)
 	minetest.add_node(pos, {name = new_node_name})
 	minetest.sound_play("bobblocks_glassblock", {
 		pos = pos,
-		gain = 1.0,
 		max_hear_distance = 32,
 	})
 end

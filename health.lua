@@ -46,13 +46,12 @@ minetest.register_abm({
 	nodenames = {"bobblocks:health_on"},
 	interval = 1.0,
 	chance = 1,
-	action = function(pos, node, active_object_count, active_object_count_wider)
-		local objs = minetest.get_objects_inside_radius(pos, 1)
-		for k, obj in pairs(objs) do
+	action = function(pos)
+		for _, obj in pairs(minetest.get_objects_inside_radius(pos, 1)) do
 			minetest.sound_play("bobblocks_health",
-				{pos = pos, gain = 1.0, max_hear_distance = 32,})
-			obj:set_hp(obj:get_hp()+10)	 -- give 10HP
-			minetest.remove_node(pos)  -- remove the node after use
+				{pos = pos, max_hear_distance = 32,})
+			obj:set_hp(obj:get_hp() + 10)
+			minetest.remove_node(pos)
 		end
 	end,
 
