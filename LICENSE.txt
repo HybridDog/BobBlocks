@@ -1,0 +1,44 @@
+Sounds
+
+bobblocks_glassblock.ogg
+source: https://freesound.org/people/Ch0cchi/sounds/15285/
+accessed at: 2024-12-01T14+00:00
+title: CHAMPAGNE FLUKE .wav
+author: Ch0cchi
+SPDX-License-Identifier: CC-BY-3.0
+Edited by rabbibob
+
+bobblocks_trap_fall.ogg, bobblocks_trap_fall_major.ogg
+source: https://freesound.org/people/Rock%20Savage/sounds/65924/
+accessed at: 2024-12-01T14+00:00
+title: Squelch Blood Stab .wav
+author: Rock Savage
+license: CC SAMPLING+ 1.0
+license description: https://creativecommons.org/licenses/sampling+/1.0/ (accessed at 2024-12-01T14+00:00)
+Edited by rabbibob
+
+bobblocks_health.ogg
+source: https://rpg.hamsterrepublic.com/ohrrpgce/Free_Sound_Effects
+accessed at: 2024-12-01T14+00:00
+title: DrainMagic.ogg
+author: Fnrrf Ygm Schnish
+license: either public domain or creative-commons
+
+
+Textures
+
+bobblocks_majorspike.png, bobblocks_minorspike.png, bobblocks_trap_set.png
+source (broken link): http://minetest.net/forum/viewtopic.php?id=1582
+accessed at: probably 2013
+author: Death Dealer
+SPDX-License-Identifier: WTFPL
+
+bobblocks_*block.png, bobblocks_btm*, bobblocks_health*, bobblocks_*pole.png
+author: Rabbi Bob
+SPDX-License-Identifier: GPL-2.0+
+
+
+Code
+
+SPDX-License-Identifier: GPL-2.0+
+(according to the forum topic)
