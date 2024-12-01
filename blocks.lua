@@ -176,18 +176,17 @@ minetest.register_node("bobblocks:greypole", {
 -- Crafts
 -- BTM
 minetest.register_craft({
-	output = 'NodeItem "bobblocks:btm" 1',
+	output = "bobblocks:btm",
 	recipe = {
-		{'node "default:glass" 1', 'node "default:torch" 1', 'node "default:leaves" 1',
-        'node "default:mese" 1','node "default:rat" 1'},
-
+		{"default:glass", "default:torch", "default:leaves",
+		"default:mese","default:rat"},
 	},
 })
 
 minetest.register_craft({
-	output = 'NodeItem "bobblocks:greyblock" 2',
+	output = "bobblocks:greyblock 2",
 	recipe = {
-		{'node "default:glass" 1', 'node "default:torch" 1', 'node "default:cobble" 1'},
+		{"default:glass", "default:torch", "default:cobble"},
 	},
 })
 
@@ -198,63 +197,59 @@ minetest.register_craft({
 -- Red / Yellow / White -> Indigo
 
 minetest.register_craft({
-	output = 'NodeItem "bobblocks:redblock" 2',
+	output = "bobblocks:redblock 2",
 	recipe = {
-		{'node "default:glass" 1', 'node "default:torch" 1', 'node "default:brick" 1'},
+		{"default:glass", "default:torch", "default:brick"},
 	},
 })
 minetest.register_craft({
-	output = 'NodeItem "bobblocks:yellowblock" 2',
+	output = "bobblocks:yellowblock 2",
 	recipe = {
-		{'node "default:glass" 1', 'node "default:torch" 1', 'node "default:sand" 1'},
+		{"default:glass", "default:torch", "default:sand"},
 	},
 })
 minetest.register_craft({
-	output = 'NodeItem "bobblocks:blueblock" 2',
+	output = "bobblocks:blueblock 2",
 	recipe = {
-		{'node "default:glass" 1', 'node "default:torch" 1', 'node "default:gravel" 1'},
+		{"default:glass", "default:torch", "default:gravel"},
 	},
 })
 
 minetest.register_craft({
-	output = 'NodeItem "bobblocks:whiteblock" 2',
+	output = "bobblocks:whiteblock 2",
 	recipe = {
-		{'node "default:glass" 1', 'node "default:torch" 1', 'node "default:dirt" 1'},
-	},
-})
-
-
-minetest.register_craft({
-	output = 'NodeItem "bobblocks:orangeblock" 2',
-	recipe = {
-		{'node "bobblocks:redblock" 1', 'node "bobblocks:yellowblock" 1'},
-
+		{"default:glass", "default:torch", "default:dirt"},
 	},
 })
 
 
 minetest.register_craft({
-	output = 'NodeItem "bobblocks:violetblock" 2',
+	output = "bobblocks:orangeblock 2",
 	recipe = {
-		{'node "bobblocks:redblock" 1', 'node "bobblocks:blueblock" 1'},
-
-	},
-})
-
-minetest.register_craft({
-	output = 'NodeItem "bobblocks:greenblock" 2',
-	recipe = {
-		{'node "bobblocks:blueblock" 1', 'node "bobblocks:yellowblock" 1'},
-
+		{"bobblocks:redblock", "bobblocks:yellowblock"},
 	},
 })
 
 
 minetest.register_craft({
-	output = 'NodeItem "bobblocks:indigoblock" 3',
+	output = "bobblocks:violetblock 2",
 	recipe = {
-		{'node "bobblocks:redblock" 1', 'node "bobblocks:blueblock" 1', 'node "bobblocks:whiteblock" 1'},
+		{"bobblocks:redblock", "bobblocks:blueblock"},
+	},
+})
 
+minetest.register_craft({
+	output = "bobblocks:greenblock 2",
+	recipe = {
+		{"bobblocks:blueblock", "bobblocks:yellowblock"},
+	},
+})
+
+
+minetest.register_craft({
+	output = "bobblocks:indigoblock 3",
+	recipe = {
+		{"bobblocks:redblock", "bobblocks:blueblock", "bobblocks:whiteblock"},
 	},
 })
 
@@ -263,17 +258,17 @@ minetest.register_craft({
 for i = 1, #bobblock_colours do
 	local colour = bobblock_colours[i]
 	minetest.register_craft({
-		output = 'NodeItem "bobblocks:' .. colour .. 'pole" 1',
+		output = "bobblocks:" .. colour .. "pole",
 		recipe = {
-			{'node "bobblocks:' .. colour .. 'block" 1', 'node "default:stick" 1'},
+			{"bobblocks:" .. colour .. "block", "default:stick"},
 		},
 	})
 end
 
 minetest.register_craft({
-	output = 'NodeItem "bobblocks:greypole" 1',
+	output = "bobblocks:greypole",
 	recipe = {
-		{'node "bobblocks:greyblock" 1', 'node "default:stick" 1'},
+		{"bobblocks:greyblock", "default:stick"},
 	},
 })
 
