@@ -1,33 +1,3 @@
-local is_healthpack = function(node)
-    if node.name == 'bobblocks:health_off' or node.name == 'health_on' then
-        return true
-    end
-    return false
-end
-
-local update_healthpack = function (pos, node)
-    local nodename=""
-    local param2=""
-    --Switch HealthPack State
-    if node.name == 'bobblocks:health_off' then
-        nodename = 'bobblocks:health_on'
-    elseif node.name == 'bobblocks:health_on' then
-        nodename = 'bobblocks:health_off'
-    end
-    minetest.add_node(pos, {name = nodename})
-end
-
-local toggle_healthpack = function (pos, node)
-    if not is_healthgate(node) then return end
-    update_healthpack (pos, node, state)
-end
-
-local on_healthpack_punched = function (pos, node, puncher)
-    if node.name == 'bobblocks:health_off' or node.name == 'bobblocks:health_on' then
-        update_healthpack(pos, node)
-    end
-end
-
 -- Healing Node
 
 minetest.register_node("bobblocks:health_off", {
@@ -40,6 +10,10 @@ minetest.register_node("bobblocks:health_off", {
     is_ground_content = true,
     walkable = false,
     climbable = false,
+	on_punch = function(pos, ...)
+		minetest.add_node(pos, {name = "bobblocks:health_on"})
+		return minetest.node_punch(pos, ...)
+	end,
     mesecons = {conductor={
 			state = mesecon.state.off,
 			onstate = "bobblocks:health_on"
@@ -57,6 +31,10 @@ minetest.register_node("bobblocks:health_on", {
         walkable = false,
     climbable = false,
     drop = "bobblocks:health_off",
+	on_punch = function(pos, ...)
+		minetest.add_node(pos, {name = "bobblocks:health_off"})
+		return minetest.node_punch(pos, ...)
+	end,
         mesecons = {conductor={
 			state = mesecon.state.on,
 			offstate = "bobblocks:health_off"
@@ -89,7 +67,3 @@ minetest.register_craft({
 
 	},
 })
-
-
-minetest.register_on_punchnode(on_healthpack_punched)
-

@@ -1,33 +1,3 @@
--- State Changes
-
-local update_bobtrap = function (pos, node)
-    local nodename=""
-    local param2=""
-    --Switch Trap State
-    if
-    -- Swap Traps
-               node.name == 'bobblocks:trap_spike' then nodename = 'bobblocks:trap_spike_set'
-        elseif node.name == 'bobblocks:trap_spike_set' then nodename = 'bobblocks:trap_spike'
-        elseif node.name == 'bobblocks:trap_spike_major' then nodename = 'bobblocks:trap_spike_major_set'
-        elseif node.name == 'bobblocks:trap_spike_major_set' then nodename = 'bobblocks:trap_spike_major'
-    end
-    minetest.add_node(pos, {name = nodename})
-end
-
--- Punch Traps
-local on_bobtrap_punched = function (pos, node, puncher)
-    if
-       -- Start Traps
-       node.name == 'bobblocks:trap_spike' or node.name == 'bobblocks:trap_spike_set'  or
-       node.name == 'bobblocks:trap_spike_major' or node.name == 'bobblocks:trap_spike_major_set'
-    then
-        update_bobtrap(pos, node)
-    end
-end
-
-minetest.register_on_punchnode(on_bobtrap_punched)
-
-
 --ABM (Spring The Traps)
 
 minetest.register_abm(
@@ -35,11 +5,10 @@ minetest.register_abm(
     interval = 1.0,
     chance = 1,
     action = function(pos, node, active_object_count, active_object_count_wider)
-    local objs = minetest.get_objects_inside_radius(pos, 1)
-        for k, obj in pairs(objs) do
-
-        update_bobtrap(pos, node)
-    end
+		local objs = minetest.get_objects_inside_radius(pos, 1)
+		for k, obj in pairs(objs) do
+			minetest.add_node(pos, {name = "bobblocks:trap_spike"})
+		end
     end,
 
 })
@@ -49,13 +18,11 @@ minetest.register_abm(
     interval = 1.0,
     chance = 1,
     action = function(pos, node, active_object_count, active_object_count_wider)
-    local objs = minetest.get_objects_inside_radius(pos, 1)
-        for k, obj in pairs(objs) do
-
-        update_bobtrap(pos, node)
-    end
+		local objs = minetest.get_objects_inside_radius(pos, 1)
+		for k, obj in pairs(objs) do
+			minetest.add_node(pos, {name = "bobblocks:trap_spike_major"})
+		end
     end,
-
 })
 
 
@@ -82,6 +49,10 @@ minetest.register_node("bobblocks:trap_spike", {
     walkable = false,
 	sunlight_propagates = true,
     groups = {cracky=3,melty=3},
+	on_punch = function(pos, ...)
+		minetest.add_node(pos, {name = "bobblocks:trap_spike_set"})
+		return minetest.node_punch(pos, ...)
+	end
 })
 
 minetest.register_node("bobblocks:trap_spike_set", {
@@ -93,6 +64,10 @@ minetest.register_node("bobblocks:trap_spike_set", {
 	sunlight_propagates = true,
     groups = {cracky=3,melty=3,not_in_creative_inventory=1},
     drop = 'bobblocks:trap_spike',
+	on_punch = function(pos, ...)
+		minetest.add_node(pos, {name = "bobblocks:trap_spike"})
+		return minetest.node_punch(pos, ...)
+	end
 })
 
 
@@ -105,6 +80,10 @@ minetest.register_node("bobblocks:trap_spike_major", {
     walkable = false,
 	sunlight_propagates = true,
     groups = {cracky=2,melty=2},
+	on_punch = function(pos, ...)
+		minetest.add_node(pos, {name = "bobblocks:trap_spike_major_set"})
+		return minetest.node_punch(pos, ...)
+	end
 })
 
 minetest.register_node("bobblocks:trap_spike_major_set", {
@@ -116,6 +95,10 @@ minetest.register_node("bobblocks:trap_spike_major_set", {
 	sunlight_propagates = true,
     groups = {cracky=3,melty=3,not_in_creative_inventory=1},
     drop = 'bobblocks:trap_spike_major',
+	on_punch = function(pos, ...)
+		minetest.add_node(pos, {name = "bobblocks:trap_spike_major"})
+		return minetest.node_punch(pos, ...)
+	end
 })
 
 
