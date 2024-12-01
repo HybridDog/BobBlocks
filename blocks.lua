@@ -56,7 +56,7 @@ for i = 1, #bobblock_colours do
 	})
 
 	minetest.register_node("bobblocks:" ..  colour .. "block_off", {
-		description = colour_capitalised .. " Block",
+		description = colour_capitalised .. " Block (Off)",
 		tiles = {"bobblocks_" ..  colour .. "block.png^[opacity:200"},
 		drawtype = "liquid",
 		use_texture_alpha = "blend",
@@ -94,7 +94,7 @@ for i = 1, #bobblock_colours do
 	})
 
 	minetest.register_node("bobblocks:" .. colour .. "pole_off", {
-		description = colour_capitalised .. " Pole",
+		description = colour_capitalised .. " Pole (Off)",
 		drawtype = "fencelike",
 		tiles = {"bobblocks_" .. colour .. "block.png"},
 		inventory_image = ("bobblocks_inv" .. colour .. "pole.png"),
@@ -137,7 +137,7 @@ minetest.register_node("bobblocks:greyblock", {
 })
 
 minetest.register_node("bobblocks:greyblock_off", {
-	description = "Grey Block",
+	description = "Grey Block (Off)",
 	tiles = {"bobblocks_greyblock.png^[opacity:200"},
 	drawtype = "liquid",
 	groups = {snappy=2, cracky=3, oddly_breakable_by_hand=3,
