@@ -5,8 +5,7 @@ minetest.register_abm(
     interval = 1.0,
     chance = 1,
     action = function(pos, node, active_object_count, active_object_count_wider)
-		local objs = minetest.get_objects_inside_radius(pos, 1)
-		for k, obj in pairs(objs) do
+		if next(minetest.get_objects_inside_radius(pos, 1)) then
 			minetest.add_node(pos, {name = "bobblocks:trap_spike"})
 		end
     end,
@@ -18,8 +17,7 @@ minetest.register_abm(
     interval = 1.0,
     chance = 1,
     action = function(pos, node, active_object_count, active_object_count_wider)
-		local objs = minetest.get_objects_inside_radius(pos, 1)
-		for k, obj in pairs(objs) do
+		if next(minetest.get_objects_inside_radius(pos, 1)) then
 			minetest.add_node(pos, {name = "bobblocks:trap_spike_major"})
 		end
     end,
