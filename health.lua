@@ -31,7 +31,7 @@ end
 -- Healing Node
 
 minetest.register_node("bobblocks:health_off", {
-	description = "Health Pack 1",
+	description = "Health Pack 1 Off",
     tile_images = {"bobblocks_health_off.png"},
     inventory_image = "bobblocks_health_off.png",
 	paramtype2 = "facedir",
@@ -47,7 +47,7 @@ minetest.register_node("bobblocks:health_off", {
 })
 
 minetest.register_node("bobblocks:health_on", {
-	description = "Health Pack 1",
+	description = "Health Pack 1 On",
     tile_images = {"bobblocks_health_on.png"},
 	paramtype2 = "facedir",
 	legacy_facedir_simple = true,

@@ -86,7 +86,8 @@ minetest.register_node("bobblocks:btm", {
 	paramtype2 = "facedir",
 	material = minetest.digprop_dirtlike(1.0),
 	legacy_facedir_simple = true,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
+    
 })
 
 
@@ -113,7 +114,7 @@ minetest.register_node("bobblocks:redblock_off", {
     tile_images = {"bobblocks_redblock.png"},
     is_ground_content = true,
     alpha = WATER_ALPHA,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:redblock',
     mesecons = {conductor={
 			state = mesecon.state.off,
@@ -144,7 +145,7 @@ minetest.register_node("bobblocks:orangeblock_off", {
     tile_images = {"bobblocks_orangeblock.png"},
     is_ground_content = true,
     alpha = WATER_ALPHA,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:orangeblock',
     mesecons = {conductor={
 			state = mesecon.state.off,
@@ -175,7 +176,7 @@ minetest.register_node("bobblocks:yellowblock_off", {
     tile_images = {"bobblocks_yellowblock.png"},
     is_ground_content = true,
     alpha = WATER_ALPHA,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:yellowblock',
     mesecons = {conductor={
 			state = mesecon.state.off,
@@ -206,7 +207,7 @@ minetest.register_node("bobblocks:greenblock_off", {
     tile_images = {"bobblocks_greenblock.png"},
     is_ground_content = true,
     alpha = WATER_ALPHA,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:greenblock',
     mesecons = {conductor={
 			state = mesecon.state.off,
@@ -238,7 +239,7 @@ minetest.register_node("bobblocks:blueblock_off", {
     tile_images = {"bobblocks_blueblock.png"},
     is_ground_content = true,
     alpha = WATER_ALPHA,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:blueblock',
     mesecons = {conductor={
 			state = mesecon.state.off,
@@ -269,7 +270,7 @@ minetest.register_node("bobblocks:indigoblock_off", {
     tile_images = {"bobblocks_indigoblock.png"},
     is_ground_content = true,
     alpha = WATER_ALPHA,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:indigoblock',
     mesecons = {conductor={
 			state = mesecon.state.off,
@@ -301,7 +302,7 @@ minetest.register_node("bobblocks:violetblock_off", {
     tile_images = {"bobblocks_violetblock.png"},
     is_ground_content = true,
     alpha = WATER_ALPHA,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:violetblock',
     mesecons = {conductor={
 			state = mesecon.state.off,
@@ -332,7 +333,7 @@ minetest.register_node("bobblocks:whiteblock_off", {
     tile_images = {"bobblocks_whiteblock.png"},
     is_ground_content = true,
     alpha = WATER_ALPHA,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:whiteblock',
     mesecons = {conductor={
 			state = mesecon.state.off,
@@ -364,7 +365,7 @@ minetest.register_node("bobblocks:greyblock_off", {
     tile_images = {"bobblocks_greyblock.png"},
     is_ground_content = true,
     alpha = WATER_ALPHA,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:greyblock',
     mesecons = {conductor={
 			state = mesecon.state.off,
@@ -402,25 +403,13 @@ minetest.register_node("bobblocks:redpole_off", {
 	is_ground_content = true,
 	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-10,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:redpole',
     mesecons = {conductor={
 			state = mesecon.state.off,
 			onstate = "bobblocks:redpole"
 		}}
-})
-
-minetest.register_node("bobblocks:orangepole", {
-	description = "Orange Pole",
-	drawtype = "fencelike",
-	tile_images = {"bobblocks_orangeblock.png"},
-	inventory_image = ("bobblocks_invorangepole.png"),
-	paramtype = "light",
-	sunlight_propagates = true,
-	is_ground_content = true,
-	sounds = default.node_sound_glass_defaults(),
-    light_source = LIGHT_MAX-0,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    
 })
 
 minetest.register_node("bobblocks:orangepole", {
@@ -450,12 +439,13 @@ minetest.register_node("bobblocks:orangepole_off", {
 	is_ground_content = true,
 	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-10,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:orangepole',
     mesecons = {conductor={
 			state = mesecon.state.off,
 			onstate = "bobblocks:orangepole"
 		}}
+    
 })
 
 minetest.register_node("bobblocks:yellowpole", {
@@ -485,12 +475,13 @@ minetest.register_node("bobblocks:yellowpole_off", {
 	is_ground_content = true,
 	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-10,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:yellowpole',
     mesecons = {conductor={
 			state = mesecon.state.off,
 			onstate = "bobblocks:yellowpole"
 		}}
+    
 })
 
 minetest.register_node("bobblocks:greenpole", {
@@ -520,12 +511,13 @@ minetest.register_node("bobblocks:greenpole_off", {
 	is_ground_content = true,
 	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-10,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:greenpole',
     mesecons = {conductor={
 			state = mesecon.state.off,
 			onstate = "bobblocks:greenpole"
 		}}
+    
 })
 
 minetest.register_node("bobblocks:bluepole", {
@@ -555,12 +547,13 @@ minetest.register_node("bobblocks:bluepole_off", {
 	is_ground_content = true,
 	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-10,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:bluepole',
     mesecons = {conductor={
 			state = mesecon.state.off,
 			onstate = "bobblocks:bluepole"
 		}}
+    
 })
 
 minetest.register_node("bobblocks:indigopole", {
@@ -590,12 +583,13 @@ minetest.register_node("bobblocks:indigopole_off", {
 	is_ground_content = true,
 	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-10,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:indigopole',
     mesecons = {conductor={
 			state = mesecon.state.off,
 			onstate = "bobblocks:indigopole"
 		}}
+    
 })
 
 minetest.register_node("bobblocks:violetpole", {
@@ -625,12 +619,13 @@ minetest.register_node("bobblocks:violetpole_off", {
 	is_ground_content = true,
 	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-10,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:violetpole',
     mesecons = {conductor={
 			state = mesecon.state.off,
 			onstate = "bobblocks:violetpole"
 		}}
+    
 })
 
 minetest.register_node("bobblocks:whitepole", {
@@ -660,12 +655,13 @@ minetest.register_node("bobblocks:whitepole_off", {
 	is_ground_content = true,
 	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-10,
-    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
     drop = 'bobblocks:whitepole',
     mesecons = {conductor={
 			state = mesecon.state.off,
 			onstate = "bobblocks:whitepole"
 		}}
+    
 })
 
 minetest.register_node("bobblocks:greypole", {

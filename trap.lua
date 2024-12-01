@@ -86,20 +86,20 @@ minetest.register_node("bobblocks:trap_spike", {
 })
 
 minetest.register_node("bobblocks:trap_spike_set", {
-	description = "Trap Spike Minor",
+	description = "Trap Spike Minor Set",
     drawtype = "raillike",
     visual_scale = 1,
 	tile_images = {"bobblocks_trap_set.png"},
     paramtype = "light",
     walkable = false,
 	sunlight_propagates = true,
-    groups = {cracky=3,melty=3},
+    groups = {cracky=3,melty=3,not_in_creative_inventory=1},
     drop = 'bobblocks:trap_spike',
 })
 
 
 minetest.register_node("bobblocks:trap_spike_major", {
-	description = "Trap Spike Minor",
+	description = "Trap Spike Major",
     drawtype = "plantlike",
     visual_scale = 1,
 	tile_images = {"bobblocks_majorspike.png"},
@@ -111,15 +111,15 @@ minetest.register_node("bobblocks:trap_spike_major", {
 })
 
 minetest.register_node("bobblocks:trap_spike_major_set", {
-	description = "Trap Spike Major",
+	description = "Trap Spike Major Set",
     drawtype = "raillike",
     visual_scale = 1,
 	tile_images = {"bobblocks_trap_set.png"},
     paramtype = "light",
     walkable = false,
 	sunlight_propagates = true,
-    groups = {cracky=3,melty=3},
-    drop = 'bobblocks:trap_spike',
+    groups = {cracky=3,melty=3,not_in_creative_inventory=1},
+    drop = 'bobblocks:trap_spike_major',
 })
 
 
