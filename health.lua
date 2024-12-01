@@ -25,7 +25,7 @@ minetest.register_node("bobblocks:health_on", {
     tiles = {"bobblocks_health_on.png"},
 	paramtype2 = "facedir",
 	legacy_facedir_simple = true,
-    light_source = LIGHT_MAX-0,
+    light_source = 14,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
     is_ground_content = true,
         walkable = false,

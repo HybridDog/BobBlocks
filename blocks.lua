@@ -45,7 +45,7 @@ for i = 1, #bobblock_colours do
 		sunlight_propagates = true,
 		is_ground_content = true,
 		sounds = default.node_sound_glass_defaults(),
-		light_source = LIGHT_MAX,
+		light_source = 14,
 		groups = {snappy=2, cracky=3, oddly_breakable_by_hand=3},
 		on_punch = function(pos, ...)
 			switch_block_state(pos, "bobblocks:" ..  colour .. "block_off")
@@ -84,7 +84,7 @@ for i = 1, #bobblock_colours do
 		sunlight_propagates = true,
 		is_ground_content = true,
 		sounds = default.node_sound_glass_defaults(),
-		light_source = LIGHT_MAX,
+		light_source = 14,
 		groups = {snappy=2, cracky=3, oddly_breakable_by_hand=3},
 		on_punch = function(pos, ...)
 			switch_block_state(pos, "bobblocks:" ..  colour .. "pole_off")
@@ -105,7 +105,7 @@ for i = 1, #bobblock_colours do
 		sunlight_propagates = true,
 		is_ground_content = true,
 		sounds = default.node_sound_glass_defaults(),
-		light_source = LIGHT_MAX-10,
+		light_source = 4,
 		groups = {snappy=2, cracky=3, oddly_breakable_by_hand=3,
 			not_in_creative_inventory=1},
 		drop = "bobblocks:" .. colour .. "pole",
@@ -129,7 +129,7 @@ minetest.register_node("bobblocks:greyblock", {
 	sunlight_propagates = true,
 	is_ground_content = true,
 	sounds = default.node_sound_glass_defaults(),
-	light_source = LIGHT_MAX,
+	light_source = 14,
 	groups = {snappy=2, cracky=3, oddly_breakable_by_hand=3},
 	on_punch = function(pos, ...)
 		switch_block_state(pos, "bobblocks:greyblock_off")
