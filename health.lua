@@ -9,9 +9,10 @@ minetest.register_node("bobblocks:health_off", {
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 	walkable = false,
 	climbable = false,
-	on_punch = function(pos, ...)
-		minetest.add_node(pos, {name = "bobblocks:health_on"})
-		return minetest.node_punch(pos, ...)
+	on_punch = function(pos, node, ...)
+		node.name = "bobblocks:health_on"
+		minetest.add_node(pos, node)
+		return minetest.node_punch(pos, node, ...)
 	end,
 	mesecons = {conductor={
 		state = mesecon.state.off,
@@ -29,9 +30,10 @@ minetest.register_node("bobblocks:health_on", {
 	walkable = false,
 	climbable = false,
 	drop = "bobblocks:health_off",
-	on_punch = function(pos, ...)
-		minetest.add_node(pos, {name = "bobblocks:health_off"})
-		return minetest.node_punch(pos, ...)
+	on_punch = function(pos, node, ...)
+		node.name = "bobblocks:health_off"
+		minetest.add_node(pos, node)
+		return minetest.node_punch(pos, node, ...)
 	end,
 	mesecons = {conductor={
 		state = mesecon.state.on,
