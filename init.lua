@@ -10,6 +10,7 @@ minetest.register_node("bobblocks:btm", {
 	paramtype2 = "facedir",
 	material = minetest.digprop_dirtlike(1.0),
 	legacy_facedir_simple = true,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 default.register_falling_node("bobblocks:btm", "bobblocks_btm_sides.png")
@@ -24,6 +25,7 @@ minetest.register_node("bobblocks:redblock", {
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
     light_source = LIGHT_MAX-0,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 minetest.register_node("bobblocks:orangeblock", {
@@ -36,6 +38,7 @@ minetest.register_node("bobblocks:orangeblock", {
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
     light_source = LIGHT_MAX-0,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 minetest.register_node("bobblocks:yellowblock", {
@@ -48,6 +51,7 @@ minetest.register_node("bobblocks:yellowblock", {
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
     light_source = LIGHT_MAX-0,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 minetest.register_node("bobblocks:greenblock", {
@@ -60,6 +64,7 @@ minetest.register_node("bobblocks:greenblock", {
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
     light_source = LIGHT_MAX-0,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 minetest.register_node("bobblocks:blueblock", {
@@ -72,6 +77,7 @@ minetest.register_node("bobblocks:blueblock", {
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
     light_source = LIGHT_MAX-0,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 minetest.register_node("bobblocks:indigoblock", {
@@ -84,6 +90,7 @@ minetest.register_node("bobblocks:indigoblock", {
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
     light_source = LIGHT_MAX-0,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 minetest.register_node("bobblocks:violetblock", {
@@ -96,6 +103,7 @@ minetest.register_node("bobblocks:violetblock", {
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
     light_source = LIGHT_MAX-0,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 minetest.register_node("bobblocks:whiteblock", {
@@ -108,6 +116,7 @@ minetest.register_node("bobblocks:whiteblock", {
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
     light_source = LIGHT_MAX-0,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 minetest.register_node("bobblocks:greyblock", {
@@ -119,6 +128,7 @@ minetest.register_node("bobblocks:greyblock", {
 	sunlight_propagates = true,
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 -- Poles
@@ -132,6 +142,7 @@ minetest.register_node("bobblocks:redpole", {
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
     light_source = LIGHT_MAX-0,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 minetest.register_node("bobblocks:orangepole", {
@@ -144,6 +155,7 @@ minetest.register_node("bobblocks:orangepole", {
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
     light_source = LIGHT_MAX-0,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 minetest.register_node("bobblocks:yellowpole", {
@@ -156,6 +168,7 @@ minetest.register_node("bobblocks:yellowpole", {
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
     light_source = LIGHT_MAX-0,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 minetest.register_node("bobblocks:greenpole", {
@@ -168,6 +181,7 @@ minetest.register_node("bobblocks:greenpole", {
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
     light_source = LIGHT_MAX-0,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 minetest.register_node("bobblocks:bluepole", {
@@ -180,6 +194,7 @@ minetest.register_node("bobblocks:bluepole", {
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
     light_source = LIGHT_MAX-0,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 minetest.register_node("bobblocks:indigopole", {
@@ -192,6 +207,7 @@ minetest.register_node("bobblocks:indigopole", {
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
     light_source = LIGHT_MAX-0,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 minetest.register_node("bobblocks:violetpole", {
@@ -204,6 +220,7 @@ minetest.register_node("bobblocks:violetpole", {
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
     light_source = LIGHT_MAX-0,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 minetest.register_node("bobblocks:whitepole", {
@@ -216,6 +233,7 @@ minetest.register_node("bobblocks:whitepole", {
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
     light_source = LIGHT_MAX-0,
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
 minetest.register_node("bobblocks:greypole", {
@@ -227,6 +245,7 @@ minetest.register_node("bobblocks:greypole", {
 	sunlight_propagates = true,
 	is_ground_content = true,
 	material = minetest.digprop_glasslike(1.0),
+    groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
     --light_source = LIGHT_MAX-0,
 })
 
