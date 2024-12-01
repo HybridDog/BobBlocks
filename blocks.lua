@@ -1,31 +1,6 @@
 -- BobBlocks mod by RabbiBob
 -- State Changes
 
-local is_bobblock = function(node)
-    if 
-        -- Start Blocks
-       node.name == 'bobblocks:redblock' or node.name == 'bobblocks:redblock_off' or
-       node.name == 'bobblocks:orangeblock' or node.name == 'bobblocks:orangeblock_off' or
-       node.name == 'bobblocks:yellowblock' or node.name == 'bobblocks:yellowblock_off' or
-       node.name == 'bobblocks:greenblock' or node.name == 'bobblocks:greenblock_off' or
-       node.name == 'bobblocks:blueblock' or node.name == 'bobblocks:blueblock_off' or
-       node.name == 'bobblocks:indigoblock' or node.name == 'bobblocks:indigoblock_off' or
-       node.name == 'bobblocks:violetblock' or node.name == 'bobblocks:violetblock_off' or
-       node.name == 'bobblocks:whiteblock' or node.name == 'bobblocks:whiteblock_off' or
-        -- Start Poles
-       node.name == 'bobblocks:redpole' or node.name == 'bobblocks:redpole_off' or
-       node.name == 'bobblocks:orangepole' or node.name == 'bobblocks:orangepole_off' or
-       node.name == 'bobblocks:yellowpole' or node.name == 'bobblocks:yellowpole_off' or
-       node.name == 'bobblocks:greenpole' or node.name == 'bobblocks:greenpole_off' or
-       node.name == 'bobblocks:bluepole' or node.name == 'bobblocks:bluepole_off' or
-       node.name == 'bobblocks:indigopole' or node.name == 'bobblocks:indigopole_off' or
-       node.name == 'bobblocks:violetpole' or node.name == 'bobblocks:violetpole_off' or
-       node.name == 'bobblocks:whitepole' or node.name == 'bobblocks:whiteblock_off' 
-       then return true
-    end
-    return false
-end
-
 local update_bobblock = function (pos, node)
     local nodename=""
     local param2=""
@@ -67,13 +42,10 @@ local update_bobblock = function (pos, node)
     elseif node.name == 'bobblocks:whitepole' then nodename = 'bobblocks:whitepole_off' 
     end
     minetest.env:add_node(pos, {name = nodename})
+    minetest.sound_play("bobblocks_glassblock",
+	{pos = pos, gain = 1.0, max_hear_distance = 32,})
 end
 
--- Toggle Blocks
-local toggle_bobblock = function (pos, node)
-    if not is_bobblock(node) then return end
-    update_bobblock (pos, node, state)
-end
     
 -- Punch Blocks    
 local on_bobblock_punched = function (pos, node, puncher)
@@ -117,7 +89,6 @@ minetest.register_node("bobblocks:btm", {
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
-default.register_falling_node("bobblocks:btm", "bobblocks_btm_sides.png")
 
 -- Start Block Nodes
 minetest.register_node("bobblocks:redblock", {
@@ -128,7 +99,7 @@ minetest.register_node("bobblocks:redblock", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-0,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
@@ -150,7 +121,7 @@ minetest.register_node("bobblocks:orangeblock", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-0,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
@@ -173,7 +144,7 @@ minetest.register_node("bobblocks:yellowblock", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-0,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
@@ -195,7 +166,7 @@ minetest.register_node("bobblocks:greenblock", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-0,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
@@ -217,7 +188,7 @@ minetest.register_node("bobblocks:blueblock", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-0,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
@@ -239,7 +210,7 @@ minetest.register_node("bobblocks:indigoblock", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-0,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
@@ -261,7 +232,7 @@ minetest.register_node("bobblocks:violetblock", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-0,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
@@ -283,7 +254,7 @@ minetest.register_node("bobblocks:whiteblock", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-0,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
@@ -305,7 +276,7 @@ minetest.register_node("bobblocks:greyblock", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
 
@@ -318,7 +289,7 @@ minetest.register_node("bobblocks:redpole", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-0,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
@@ -331,9 +302,10 @@ minetest.register_node("bobblocks:redpole_off", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-10,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    drop = 'bobblocks:redpole',
 })
 
 minetest.register_node("bobblocks:orangepole", {
@@ -344,7 +316,7 @@ minetest.register_node("bobblocks:orangepole", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-0,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
@@ -357,9 +329,10 @@ minetest.register_node("bobblocks:orangepole_off", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-10,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    drop = 'bobblocks:orangepole',
 })
 
 minetest.register_node("bobblocks:yellowpole", {
@@ -370,7 +343,7 @@ minetest.register_node("bobblocks:yellowpole", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-0,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
@@ -383,9 +356,10 @@ minetest.register_node("bobblocks:yellowpole_off", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-10,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    drop = 'bobblocks:yellowpole',
 })
 
 minetest.register_node("bobblocks:greenpole", {
@@ -396,7 +370,7 @@ minetest.register_node("bobblocks:greenpole", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-0,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
@@ -409,9 +383,10 @@ minetest.register_node("bobblocks:greenpole_off", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-10,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    drop = 'bobblocks:greenpole',
 })
 
 minetest.register_node("bobblocks:bluepole", {
@@ -422,7 +397,7 @@ minetest.register_node("bobblocks:bluepole", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-0,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
@@ -435,9 +410,10 @@ minetest.register_node("bobblocks:bluepole_off", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-10,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    drop = 'bobblocks:bluepole',
 })
 
 minetest.register_node("bobblocks:indigopole", {
@@ -448,7 +424,7 @@ minetest.register_node("bobblocks:indigopole", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-0,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
@@ -461,9 +437,10 @@ minetest.register_node("bobblocks:indigopole_off", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-10,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    drop = 'bobblocks:indigopole',
 })
 
 minetest.register_node("bobblocks:violetpole", {
@@ -474,7 +451,7 @@ minetest.register_node("bobblocks:violetpole", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-0,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
@@ -487,9 +464,10 @@ minetest.register_node("bobblocks:violetpole_off", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-10,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    drop = 'bobblocks:violetpole',
 })
 
 minetest.register_node("bobblocks:whitepole", {
@@ -500,7 +478,7 @@ minetest.register_node("bobblocks:whitepole", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-0,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 })
@@ -513,9 +491,10 @@ minetest.register_node("bobblocks:whitepole_off", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     light_source = LIGHT_MAX-10,
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+    drop = 'bobblocks:whitepole',
 })
 
 minetest.register_node("bobblocks:greypole", {
@@ -526,7 +505,7 @@ minetest.register_node("bobblocks:greypole", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sounds = default.node_sound_glass_defaults(),
     groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
     --light_source = LIGHT_MAX-0,
 })
