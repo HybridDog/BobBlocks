@@ -58,7 +58,7 @@ minetest.register_node("bobblocks:trap_spike_set", {
 	walkable = false,
 	sunlight_propagates = true,
 	groups = {cracky=3,melty=3,not_in_creative_inventory=1},
-	drop = 'bobblocks:trap_spike',
+	drop = "bobblocks:trap_spike",
 	on_punch = function(pos, ...)
 		minetest.add_node(pos, {name = "bobblocks:trap_spike"})
 		return minetest.node_punch(pos, ...)
@@ -89,7 +89,7 @@ minetest.register_node("bobblocks:trap_spike_major_set", {
 	walkable = false,
 	sunlight_propagates = true,
 	groups = {cracky=3,melty=3,not_in_creative_inventory=1},
-	drop = 'bobblocks:trap_spike_major',
+	drop = "bobblocks:trap_spike_major",
 	on_punch = function(pos, ...)
 		minetest.add_node(pos, {name = "bobblocks:trap_spike_major"})
 		return minetest.node_punch(pos, ...)
@@ -100,29 +100,29 @@ minetest.register_node("bobblocks:trap_spike_major_set", {
 -- Crafting
 
 minetest.register_craft({
-	output = 'bobblocks:trap_spike',
+	output = "bobblocks:trap_spike",
 	recipe = {
-		{'', '', ''},
-		{'', 'default:cobble', ''},
-		{'default:cobble', 'default:apple', 'default:cobble'},
+		{"", "", ""},
+		{"", "default:cobble", ""},
+		{"default:cobble", "default:apple", "default:cobble"},
 	}
 })
 
 minetest.register_craft({
-	output = 'bobblocks:trap_spike_major',
+	output = "bobblocks:trap_spike_major",
 	recipe = {
-		{'', 'default:cobble', ''},
-		{'', 'default:apple', ''},
-		{'default:cobble', 'default:apple', 'default:cobble'},
+		{"", "default:cobble", ""},
+		{"", "default:apple", ""},
+		{"default:cobble", "default:apple", "default:cobble"},
 	}
 })
 
 minetest.register_craft({
-	output = 'bobblocks:trap_grass',
+	output = "bobblocks:trap_grass",
 	recipe = {
-		{'', '', ''},
-		{'', 'default:dirt', ''},
-		{'', 'default:stick', ''},
+		{"", "", ""},
+		{"", "default:dirt", ""},
+		{"", "default:stick", ""},
 	}
 })
 
