@@ -149,7 +149,7 @@ minetest.register_abm({
 	action = function(pos)
 		for _,obj in pairs(minetest.get_objects_inside_radius(pos, 1)) do
 			obj:set_hp(obj:get_hp() - 100)
-			minetest.sound_play("bobblocks_trap_fall",
+			minetest.sound_play("bobblocks_trap_fall_major",
 				{pos = pos, max_hear_distance = 3,})
 		end
 	end,
