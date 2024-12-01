@@ -76,7 +76,6 @@ minetest.register_node("bobblocks:trap_grass", {
 minetest.register_node("bobblocks:trap_spike", {
 	description = "Trap Spike Minor",
     drawtype = "plantlike",
-    visual_scale = 1,
 	tiles = {"bobblocks_minorspike.png"},
 	inventory_image = ("bobblocks_minorspike.png"),
     paramtype = "light",
@@ -88,7 +87,6 @@ minetest.register_node("bobblocks:trap_spike", {
 minetest.register_node("bobblocks:trap_spike_set", {
 	description = "Trap Spike Minor Set",
     drawtype = "raillike",
-    visual_scale = 1,
 	tiles = {"bobblocks_trap_set.png"},
     paramtype = "light",
     walkable = false,
@@ -101,7 +99,6 @@ minetest.register_node("bobblocks:trap_spike_set", {
 minetest.register_node("bobblocks:trap_spike_major", {
 	description = "Trap Spike Major",
     drawtype = "plantlike",
-    visual_scale = 1,
 	tiles = {"bobblocks_majorspike.png"},
 	inventory_image = ("bobblocks_majorspike.png"),
     paramtype = "light",
@@ -113,7 +110,6 @@ minetest.register_node("bobblocks:trap_spike_major", {
 minetest.register_node("bobblocks:trap_spike_major_set", {
 	description = "Trap Spike Major Set",
     drawtype = "raillike",
-    visual_scale = 1,
 	tiles = {"bobblocks_trap_set.png"},
     paramtype = "light",
     walkable = false,
